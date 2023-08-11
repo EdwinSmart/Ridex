@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Car Rental Registration Form</title>
+  <link rel="stylesheet" type="text/css" href="registration.css">
+</head>
+<body>
+  <h1>Car Rental Registration Form</h1>
+  <form id="registration-form" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="first-name">First Name:</label>
+      <input type="text" id="first-name" name="first_name" required>
+    </div>
+    <div class="form-group">
+      <label for="last-name">Last Name:</label>
+      <input type="text" id="last-name" name="last_name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" name="confirm_password" required>
+    </div>
+    <div class="form-group">
+      <label for="next-of-kin">Next of Kin:</label>
+      <input type="text" id="next-of-kin" name="next_of_kin" required>
+    </div>
+    <div class="form-group">
+      <label for="national-id">National ID:</label>
+      <input type="file" id="national-id" name="national_id" accept="image/*" required>
+    </div>
+    <div class="form-group">
+      <label for="driving-license">Driving License:</label>
+      <input type="file" id="driving-license" name="driving_license" accept="image/*" required>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Register">
+    </div>
+  </form>
+  
+  <script src="script.js"></script>
+</body>
+</html>

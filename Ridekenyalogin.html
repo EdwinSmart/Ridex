@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login and Registration Page</title>
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  
+    <!-- 
+      - custom css link
+    -->
+    <link rel="stylesheet" href="Ridekenya.css">
+    <link rel="stylesheet" href="Ridexchatbot.css">
+  
+    <!-- 
+      - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+    }
+    
+    .containerx {
+      max-width: 750px;
+      height: 850px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    a {
+      text-align: left;
+      color: #55ACEE;
+    
+    }
+    h1 {
+      text-align: center;
+      color: #55ACEE;
+      
+    }
+    
+    h2 {
+      text-align: center;
+      color: #55ACEE;
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 28px;
+      background-color: #f2f2f2;
+      height: 70px;
+      margin-bottom: 10px;
+      border: 1px solid lightgray;
+      border-radius: 15px;
+    }
+    
+    input[type="submit"] {
+      width: 100%;
+      height: 70px;
+      padding: 10px;
+      font-size: 28px;
+      background-color: #55ACEE;
+      border-radius: 25px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    
+    .message {
+      text-align: center;
+      margin-top: 10px;
+    }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+  </style>
+</head>
+  <header class="header" data-header>
+    <div class="container">
+
+      <div class="overlay" data-overlay></div>
+
+      <a href="#" class="logo">
+        <img src="carslogo2.jpg" alt="Ridex logo" height="70">
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li>
+            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li>
+            <a href="#featured-car" class="navbar-link" data-nav-link>Explore cars</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link" data-nav-link>About us</a>
+          </li>
+
+          <li>
+            <a href="#blog" class="navbar-link" data-nav-link>Chat now</a>
+          </li>
+          <li>
+            <a href="Ridekenyalogin.html" class="navbar-link" data-nav-link>Account</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+
+        <div class="header-contact">
+          <a href="tel:88002345678" class="contact-link">0796014215</a>
+
+          <span class="contact-time">Mon - Mon: 8:30 am - 8:00 pm</span>
+        </div>
+
+        <a href="#featured-car" class="btn" aria-labelledby="aria-label-txt">
+          <ion-icon name="car-outline"></ion-icon>
+
+          <span id="aria-label-txt">Explore cars</span>
+        </a>
+
+        <a href="#" class="btn user-btn" aria-label="Profile">
+          <ion-icon name="person-outline"></ion-icon>
+        </a>
+
+        <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle Menu">
+          <span class="one"></span>
+          <span class="two"></span>
+          <span class="three"></span>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+<body>
+  </br></br></br></br>
+  <div class="containerx">
+    </br>
+    <h1><u><b>LOGIN</u> <u>HERE:</b></u></h1></br></br>
+    <form id="login-form">
+      <input type="text" id="login-username" placeholder="Email"></br></br></br>
+      <input type="password" id="login-password" placeholder="Password">
+ <a href="#"><h2><u>Forgot</u> <u>Password?</u></h2></a></br>
+    </br>  <input type="submit" value="Login"></br></br>
+      <a href="Ridekenyaregistration.html"><h2>Don't have an account?</br>
+      <u>CLICK</u> <u>HERE</u></h2></a>
+    </form>
+    </br>
+    <div class="message" id="login-message"></div>
+  </div>
+</br>
+  
+  </div>
+<Script src="Ridex.js"></Script>
+  <script>
+    // Login form submit event
+    document.getElementById("login-form").addEventListener("submit
+    // Login form submit event
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var username = document.getElementById("login-username").value;
+      var password = document.getElementById("login-password").value;
+      
+      // Get stored user data from local storage
+      var users = JSON.parse(localStorage.getItem("users")) || [];
+      
+      // Check if the username and password match the stored data
+      var user = users.find(function(user) {
+        return user.username === username && user.password === password;
+      });
+      
+      if (user) {
+        document.getElementById("login-message").innerHTML = "Login successful!";
+      } else {
+        document.getElementById("login-message").innerHTML = "Invalid username or password";
+      }
+    });
+    
+    // Register form submit event
+    document.getElementById("register-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var username = document.getElementById("register-username").value;
+      var password = document.getElementById("register-password").value;
+      var confirmPassword = document.getElementById("register-confirm-password").value;
+      
+      // Get stored user data from local storage
+      var users = JSON.parse(localStorage.getItem("users")) || [];
+      
+      // Check if the username is already taken
+      var isUsernameTaken = users.some(function(user) {
+        return user.username === username;
+      });
+      
+      if (isUsernameTaken) {
+        document.getElementById("register-message").innerHTML = "Username is already taken";
+      } else if (password !== confirmPassword) {
+        document.getElementById("register-message").innerHTML = "Passwords do not match";
+      } else {
+        // Create a new user object
+        var newUser = {
+          username: username,
+          password: password
+        };
+        
+        // Add the new user to the users array
+        users.push(newUser);
+        
+        // Store the updated users array in local storage
+        localStorage.setItem("users", JSON.stringify(users));
+        
+        // Show registration success modal
+        document.getElementById("registration-modal").style.display = "block";
+        
+        // Reset the registration form
+        document.getElementById("register-form").reset();
+      }
+    });
+    
+    // Close registration success modal
+    document.getElementsByClassName("close")[0].addEventListener("click", function() {
+      document.getElementById("registration-modal").style.display = "none";
+    });
+    
+    // Show/hide password for login form
+    document.getElementById("login-show-password").addEventListener("change", function() {
+      var loginPasswordInput = document.getElementById("login-password");
+      if (this.checked) {
+        loginPasswordInput.type = "text";
+      } else {
+        loginPasswordInput.type = "password";
+      }
+    });
+    
+    // Show/hide password for registration form
+    document.getElementById("register-show-password").addEventListener("change", function() {
+      var registerPasswordInput = document.getElementById("register-password");
+      var registerConfirmPasswordInput = document.getElementById("register-confirm-password");
+      
+      if (this.checked) {
+        registerPasswordInput.type = "text";
+        registerConfirmPasswordInput.type = "text";
+      } else {
+        registerPasswordInput.type = "password";
+        registerConfirmPasswordInput.type = "password";
+      }
+    });
+  </script>
+</body>
+</html>
